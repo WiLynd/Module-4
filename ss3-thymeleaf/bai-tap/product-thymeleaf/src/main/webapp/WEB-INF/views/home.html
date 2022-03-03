@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+  <meta charset="UTF-8">
+  <title>Products</title>
+</head>
+<body>
+<h3>PRODUCT</h3>
+<p>
+  <a th:href="@{/product/add}">
+    Add new product
+  </a>
+</p>
+<p>
+  <a th:href="@{/product/search}">
+    Search product by name
+  </a>
+</p>
+<table id = "products">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Describe</th>
+    <th>Company</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr th:each="row,rowStat : ${products}">
+      <td th:text="${row.getId()}"></td>
+      <td th:text="${row.getName()}"></td>
+      <td th:text="${row.getPrice()}"></td>
+      <td th:text="${row.getDescribe()}"></td>
+      <td th:text="${row.getCompany()}"></td>
+      <td><a th:href="@{/product/{id}/edit(id=${row.getId()})}">Edit</a></td>
+      <td><a th:href="@{/product/{id}/delete(id=${row.getId()})}">Delete</a></td>
+      <td><a th:href="@{/product/{id}/view(id=${row.getId()})}">View</a></td>
+    </tr>
+  </tbody>
+</table>
+<div class="notify">
+  <div th:if="${success}">
+    <span th:text="${success}"></span>
+  </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
