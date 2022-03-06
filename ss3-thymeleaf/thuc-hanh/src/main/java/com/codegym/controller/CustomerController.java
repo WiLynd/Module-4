@@ -47,22 +47,24 @@ public class CustomerController {
     }
 
     @PostMapping("/save")
-    public String save(Customer customer) {
+    public String save(Customer customer, RedirectAttributes redirectAttributes) {
         customer.setId((int) (Math.random())*10000);
         customerService.save(customer);
+        redirectAttributes.addFlashAttribute("success", "Added product successfully!");
         return "redirect:/customer";
     }
 
     @PostMapping("/update")
-    public String update(Customer customer) {
+    public String update(Customer customer, RedirectAttributes redirectAttributes) {
         customerService.update(customer.getId(), customer);
+        redirectAttributes.addFlashAttribute("success", "Updated product successfully!");
         return "redirect:/customer";
     }
 
     @PostMapping("/delete")
-    public String delete(Customer customer, RedirectAttributes redirect) {
+    public String delete(Customer customer, RedirectAttributes redirectAttributes) {
         customerService.remove(customer.getId());
-        redirect.addFlashAttribute("success", "Removed customer successfully!");
+        redirectAttributes.addFlashAttribute("success", "Removed customer successfully!");
         return "redirect:/customer";
     }
 

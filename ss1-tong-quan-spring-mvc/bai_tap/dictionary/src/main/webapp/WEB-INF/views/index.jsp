@@ -4,7 +4,7 @@
     <title>Dictionary Translate</title>
 </head>
 <body>
-    <form method="post">
+    <form action="/search" method="post">
         <input type="text" name="input">
         <input type="submit" value="Translate">
     </form>

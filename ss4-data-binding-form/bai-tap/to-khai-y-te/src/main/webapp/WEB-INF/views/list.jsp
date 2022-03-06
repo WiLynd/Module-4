@@ -1,26 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Medical Form</title>
+    <title>Medical Declaration</title>
 </head>
 <body>
 <h1>Settings</h1>
-<a href="/create">Back to Setting</a>
-<table>
+<a style="margin:auto" href="/create">Back to Setting</a>
+<table border="1">
     <tr>
         <th>Name</th>
         <th>Year Of Birth</th>
         <th>Gender</th>
         <th>Nationality</th>
         <th>Identity Card Number</th>
-        <th>Vehicle</th>
-        <th>Vehicle Number</th>
-        <th>Vehicle Seat</th>
+        <th>Travel Information</th>
+        <th>Seats</th>
         <th>DepartureDay</th>
-        <th>Arrived Date</th>
-        <th>Location 14 Day</th>
-        <th>City</th>
+        <th>End Date</th>
+        <th>Question And Answer 14 Day</th>
+        <th>Conscious</th>
         <th>District</th>
         <th>Commune</th>
         <th>Address</th>

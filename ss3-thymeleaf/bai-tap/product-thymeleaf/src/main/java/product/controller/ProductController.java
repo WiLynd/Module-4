@@ -30,8 +30,9 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public String update(Product product) {
+    public String update(Product product, RedirectAttributes redirect) {
         iProductService.edit(product.getId(), product);
+        redirect.addFlashAttribute("success", "Updated product successfully!");
         return "redirect:/product";
     }
 
@@ -42,8 +43,9 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String save(Product product) {
+    public String save(Product product, RedirectAttributes redirect) {
         iProductService.add(product);
+        redirect.addFlashAttribute("success", "Added product successfully!");
         return "redirect:/product";
     }
 
@@ -56,7 +58,7 @@ public class ProductController {
     @PostMapping("/delete")
     public String delete(Product customer, RedirectAttributes redirect) {
         iProductService.delete(customer.getId());
-        redirect.addFlashAttribute("success", "Removed product successfully!");
+        redirect.addFlashAttribute("success", "Deleted product successfully!");
         return "redirect:/product";
     }
 

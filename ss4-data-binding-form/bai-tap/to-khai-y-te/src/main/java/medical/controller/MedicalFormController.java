@@ -14,14 +14,14 @@ import java.util.List;
 public class MedicalFormController {
     IMedicalForm iMedicalForm;
 
-    @GetMapping
+    @GetMapping("/list")
     public String findAll(Model model) {
         List<MedicalForm> medicalFormList = iMedicalForm.findAll();
         model.addAttribute("medicalFormList",medicalFormList);
         return "list";
     }
 
-    @PostMapping
+    @PostMapping("/list")
     public String create(@ModelAttribute MedicalForm medicalForm) {
         iMedicalForm.creat(medicalForm);
         return "redirect:/list";
