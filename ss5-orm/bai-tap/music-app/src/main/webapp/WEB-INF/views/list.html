@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Music List</title>
+  <style>
+    table {
+      border: 1px solid #000;
+    }
+
+    th, td {
+      border: 1px dotted #555;
+    }
+  </style>
+</head>
+<body>
+There are <span th:text="${music.size()}"></span> music(s).
+<table>
+  <caption>Musics List</caption>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Singer</th>
+    <th>Style</th>
+    <th>Link</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="music : ${music}">
+    <td th:text="${music.id}"></td>
+    <td>
+      <a th:href="@{/musics/{id}(id=${music.id})}" th:text="${music.name}"></a>
+    </td>
+    <td th:text="${music.singer}"></td>
+    <td th:text="${music.style}"></td>
+    <td>
+      <a th:href="music.link" th:text="${music.link}"></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
