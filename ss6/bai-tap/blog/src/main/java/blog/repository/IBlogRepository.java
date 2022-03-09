@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IBlogRepository {
 
-    List<Blog> findAdd();
+    List<Blog> findAll();
 
     Blog findById(Long id);
 
