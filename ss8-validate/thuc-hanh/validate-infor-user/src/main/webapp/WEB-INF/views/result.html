@@ -1,0 +1,8 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Congratulations</title>
+</head>
+<body>
+<h1 th:object="${user}" th:method="post">Chúc mừng <span th:text="${user.name}"></span> đã đăng ký thành công!</h1>
+</body>
+</html>

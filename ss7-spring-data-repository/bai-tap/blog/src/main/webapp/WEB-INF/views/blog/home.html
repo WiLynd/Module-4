@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<h2>Welcome to my Blog</h2>
+<p>
+    <a href="/show-create-form">Create new Blog</a>
+</p>
+<table id="blog">
+    <thead>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Summary</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+        <tr th:each="blog,status:${listBlog}" >
+            <td th:text="${blog.getId()}"></td>
+            <td th:text="${blog.getTitle()}"></td>
+            <td th:text="${blog.getBody()}"></td>
+            <td th:text="${blog.getSummary()}"></td>
+            <td>
+                <a th:href="@{/edit/{id}(id=${blog.getId()})}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/cancel/{id}(id=${blog.getId()})}">Remove</a>
+            </td>
+            <td>
+                <a th:href="@{/view/{id}(id=${blog.getId()})}">View</a>
+            </td>
+        </tr>
+</table>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
