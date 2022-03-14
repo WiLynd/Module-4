@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+        <h1> MƯỢN SÁCH </h1>
+        <p th:text="${rentedBook.name}"></p>
+        <p th:text="${rentedBook.author}"></p>
+        <p th:text="${rentedBook.review}"></p>
+        <a th:href="@{/confirmRent/{id}/(id=${rentedBook.id})}"> XÁC NHẬN MƯỢN</a>
+</body>
+</html>

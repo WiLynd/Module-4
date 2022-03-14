@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+        <h1> TRẢ SÁCH </h1>
+        <form action="/bookReturner" method="post">
+            <label> Mời nhập mã thuê
+                <input type="hidden" name="id" th:value="${bookReturn.id}">
+                <input type="number" name="rentCode">
+            </label>
+            <button type="submit"> Xác nhận</button>
+        </form>
+</body>
+</html>

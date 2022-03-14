@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> LIBRARY'S HOMEPAGE</h1>
+    <div th:text="${msg}"></div>
+    <table>
+
+        <tr>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Trạng thái</th>
+            <th>Số lượng</th>
+            <th colspan="2">Hoạt động</th>
+            <th>Mã thuê</th>
+        </tr>
+        <tr th:if="${bookList.isEmpty()}">
+            <th colspan="8"> CHƯA CÓ DỮ LIỆU</th>
+        </tr>
+        <tr th:each="myBook : ${bookList}">
+            <td th:text="${myBook.name}"></td>
+            <td th:text="${myBook.author}"></td>
+            <td>
+                <span th:if="${myBook.rentCode == null }">Chưa được mượn</span>
+                <span th:unless="${myBook.rentCode == null }">Đã được mượn</span>
+            </td>
+            <td th:text="${myBook.quality}"></td>
+            <td>
+                <a type="button" th:href="@{rentbook/{id}/(id=${myBook.getId()})}"> Mượn sách</a>
+            </td>
+            <td>
+                <a type="button" th:href="@{bookreturn/{id}/(id=${myBook.getId()})}"> Trả sách</a>
+            </td>
+            <td th:text="${myBook.rentCode}"></td>
+        </tr>
+    </table>
+    <footer>
+        <table>
+            <tr>
+                <td th:if="${bookList.hasPrevious()}">
+                    <a th:href="@{'/book'(page=${bookList.number - 1})}">Previous</a>
+                </td>
+                <td th:unless="${bookList.hasPrevious()}">
+                    <a href="">Previous</a>
+                </td>
+                <td>
+                    <div>
+                        <span th:text="${bookList.number+1}"></span> of
+                        <span th:text="${bookList.totalPages}"></span>
+                    </div>
+
+                </td>
+                <td th:if="${bookList.hasNext()}">
+                    <a th:href="@{'/book'(page=${bookList.number + 1})}">Next</a>
+                </td>
+                <td th:unless="${bookList.hasNext()}">
+                    <a href="">Next</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
+</body>
+</html>
