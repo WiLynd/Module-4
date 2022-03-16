@@ -1,6 +1,5 @@
 package com.codegym.shoppingcart.model;
 
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
