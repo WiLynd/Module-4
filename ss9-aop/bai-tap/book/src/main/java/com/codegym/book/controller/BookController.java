@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class BookController {
     @Autowired
-    IBookService iBookService;
+    private IBookService iBookService;
 
     @GetMapping({"", "book"})
     public ModelAndView showHome(@PageableDefault(size = 8) Pageable pageable, RedirectAttributes redirectAttributes) {
