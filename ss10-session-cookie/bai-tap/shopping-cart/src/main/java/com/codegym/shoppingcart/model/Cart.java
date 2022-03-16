@@ -45,10 +45,14 @@ public class Cart {
         }
     }
 
-    public void subProduct(Product product){
-            Map.Entry<Product, Integer> itemEntry = selectItemInCart(product);
-            Integer newQuantity = itemEntry.getValue() - 1;
+    public void subProduct(Product product) {
+        Map.Entry<Product, Integer> itemEntry = selectItemInCart(product);
+        int newQuantity = itemEntry.getValue() - 1;
+        if (newQuantity > 0) {
             products.replace(itemEntry.getKey(), newQuantity);
+        } else {
+            products.remove(product);
+        }
     }
 
     public Integer countProductQuantity(){

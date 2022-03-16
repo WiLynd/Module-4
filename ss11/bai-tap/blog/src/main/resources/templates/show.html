@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="form">
+    <p th:text="${readBlog.get().id}"></p>
+    <p>Writer: <span th:text="${readBlog.get().writer}"></span></p>
+    <p th:text="${readBlog.get().postingDay}"></p>
+    <p>Category: <span th:text="${readBlog.get().category.cateName}"></span></p>
+    <p th:text="${readBlog.get().content}"></p>
+    <footer>
+        <a href="/blog">Return home</a>
+    </footer>
+    <footer th:replace="/layout :: footer"></footer>
+</div>
+</body>
+</html>

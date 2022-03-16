@@ -61,4 +61,9 @@ public class ProductController {
         Optional<Product> readDetail = productService.findById(id);
         return new ModelAndView("detail","readDetail",readDetail);
     }
+
+    @GetMapping("/payment")
+    public String payment(){
+        return "/payment";
+    }
 }
