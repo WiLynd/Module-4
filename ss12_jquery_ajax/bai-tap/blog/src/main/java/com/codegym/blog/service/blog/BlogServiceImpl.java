@@ -49,5 +49,10 @@ public class BlogServiceImpl implements IBlogService {
         return iBlogRepository.findAll();
     }
 
+    @Override
+    public List<Blog> findByTitleContaining(String name) {
+        return iBlogRepository.findByTitle(name);
+    }
+
 
 }

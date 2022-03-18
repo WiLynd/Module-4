@@ -20,4 +20,6 @@ public interface IBlogService {
     Page<Blog> findAll(Pageable page);
 
     List<Blog> findAll();
+
+    List<Blog> findByTitleContaining(String name);
 }

@@ -6,11 +6,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 
     Page<Blog> findByTitleContaining(String name, Pageable page);
 
     Page<Blog> findAll(Pageable page);
+
+    List<Blog> findByTitle(String name);
 
 }
